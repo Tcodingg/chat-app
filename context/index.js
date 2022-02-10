@@ -2,13 +2,13 @@ import React, { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 export const ContextProvider = (props) => {
-   const [userName, setUserName] = useState("");
-   const [secrets, setSecret] = useState("");
+   const [username, setUsername] = useState("");
+   const [secret, setSecret] = useState("");
 
    const value = {
-      userName,
-      setUserName,
-      secrets,
+      username,
+      setUsername,
+      secret,
       setSecret,
    };
 

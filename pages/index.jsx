@@ -1,37 +1,38 @@
 import React, { useContext } from "react";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { AuthContext } from "../context";
 import axios from "axios";
 
 export default function Auth() {
-   //const { userName } = useContext(AuthContext);
-   const { userName, setUserName, secrets, setSecret } =
-      useContext(AuthContext);
-   console.log(userName);
-
+   const { username, setUsername, secret, setSecret } = useContext(AuthContext);
+   const router = useRouter();
    const onSubmit = (e) => {
       e.preventDefault();
-      if (userName.length === 0 || secrets.length === 0) return;
+      if (username.length === 0 || secret.length === 0) return;
       axios
          .put(
             "https://api.chatengine.io/users/",
-            { userName, secrets },
-            { headers: { "Private-key": process.env.PRIVATE_KEY } }
+            { username, secret },
+            {
+               headers: {
+                  "PRIVATE-KEY": process.env.privateKey,
+               },
+            }
          )
-         .then((r) => Router.push("/chats"));
+         .then((r) => router.push("/chats"));
    };
 
    return (
       <div className="background">
          <div className="auth-container">
-            <form className="auth-form" onSubmit={onSubmit}>
+            <form className="auth-form" onSubmit={(e) => onSubmit(e)}>
                <div className="auth-title">Chat App</div>
                <div className="input-container">
                   <input
                      type="text"
                      placeholder="Email"
                      className="text-input"
-                     onChange={(e) => setUserName(e.target.value)}
+                     onChange={(e) => setUsername(e.target.value)}
                   />
                   <input
                      type="password"
