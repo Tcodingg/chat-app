@@ -43,3 +43,18 @@
    border-bottom: 2px solid #726dfe;
    color: white;
 }
+
+.text-input::placeholder {
+   color: hsla(0, 0%, 100%, 0.568);
+}
+
+.submit-button {
+   width: 100%;
+   padding: 14px;
+   border-radius: 4px;
+   border-width: 0px;
+   cursor: pointer;
+   background-color: #726dfe;
+   color: white;
+   outline: none;
+}

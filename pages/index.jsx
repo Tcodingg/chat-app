@@ -19,7 +19,17 @@ export default function Auth() {
                      type="text"
                      placeholder="Email"
                      className="text-input"
+                     onChange={(e) => setUserName(e.target.value)}
                   />
+                  <input
+                     type="password"
+                     placeholder="Password"
+                     className="text-input"
+                     onChange={(e) => setSecret(e.target.value)}
+                  />
+                  <button type="submit" className="submit-button">
+                     Login/Sign Up
+                  </button>
                </div>
             </form>
          </div>
