@@ -1,4 +1,5 @@
 import { ContextProvider } from "../context";
+import "../styles/index.css";
 import "../styles/auth.css";
 
 function MyApp({ Component, pageProps }) {

@@ -58,3 +58,7 @@
    color: white;
    outline: none;
 }
+
+.submit-button::hover {
+   background-color: #938ffe;
+}
