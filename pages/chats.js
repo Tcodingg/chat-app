@@ -18,7 +18,11 @@ function Chats() {
       if (typeof document !== null) {
          setShowCase(true);
       }
-   }, []);
+   });
+
+   useEffect(() => {
+      if (username.length === 0 || secret.length === 0) router.push("/");
+   });
    if (!showCase) return <div></div>;
 
    return (
@@ -26,7 +30,7 @@ function Chats() {
          <div className="shadow">
             <ChatEngine
                height="calc(100vh - 300px)"
-               projectID={process.env.processID}
+               projectID={`${process.env.projectID}`}
                userName={username}
                userSecret={secret}
                renderNewMessageForm={() => <MessageFormSocial />}
