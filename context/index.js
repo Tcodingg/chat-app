@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
-export const Context = createContext();
+export const AuthContext = createContext();
 export const ContextProvider = (props) => {
    const [userName, setUserName] = useState("");
    const [secrets, setSecret] = useState("");
@@ -12,5 +12,9 @@ export const ContextProvider = (props) => {
       setSecret,
    };
 
-   return <Context.Provider value={value}>{props.children}</Context.Provider>;
+   return (
+      <AuthContext.Provider value={value}>
+         {props.children}
+      </AuthContext.Provider>
+   );
 };

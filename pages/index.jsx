@@ -1,12 +1,14 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import { Context } from "../context";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { AuthContext } from "../context";
+import axios from "axios";
 
 export default function Auth() {
-   const { userName, setUserName, secrets, setSecret } = useContext(Context);
+   //const { userName } = useContext(AuthContext);
+   const { userName, setUserName, secrets, setSecret } =
+      useContext(AuthContext);
+   console.log(userName);
+
    return (
       <div className="background">
          <div className="auth-container">

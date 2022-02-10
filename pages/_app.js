@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import { ContextProvider } from "../context";
+import "../styles/auth.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+   return (
+      <ContextProvider>
+         <Component {...pageProps} />
+      </ContextProvider>
+   );
 }
 
-export default MyApp
+export default MyApp;
